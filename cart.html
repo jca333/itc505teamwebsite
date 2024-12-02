@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart - Crocheting Bro's</title>
+  <style>
+    /* Basic styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f8ff; /* light baby blue background */
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #b0e0e6; /* baby blue header */
+    }
+
+    .logo {
+      font-size: 32px;
+      font-weight: bold;
+      color: #4682b4; /* darker blue for logo text */
+    }
+
+    nav ul {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-size: 18px;
+    }
+
+    nav ul li a:hover {
+      color: #4682b4;
+    }
+
+    .cart-container {
+      padding: 40px;
+    }
+
+    .cart-title {
+      text-align: center;
+      font-size: 36px;
+      color: #4682b4;
+      margin-bottom: 20px;
+    }
+
+    .cart-items {
+      max-width: 800px;
+      margin: 0 auto;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background-color: white;
+      padding: 20px;
+      box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .cart-item img {
+      width: 80px;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .cart-item-details {
+      flex: 1;
+      margin-left: 20px;
+    }
+
+    .cart-item-title {
+      font-size: 20px;
+      color: #4682b4;
+      margin: 5px 0;
+    }
+
+    .cart-item-price {
+      font-size: 16px;
+      color: #666;
+    }
+
+    .remove-button {
+      background-color: #ff6b6b;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 8px 15px;
+      cursor: pointer;
+    }
+
+    .remove-button:hover {
+      background-color: #ff8787;
+    }
+
+    .cart-total {
+      text-align: center;
+      font-size: 22px;
+      margin: 20px 0;
+    }
+
+    .credit-card-form {
+      max-width: 800px;
+      margin: 20px auto;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background-color: white;
+      padding: 20px;
+      box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .credit-card-form h2 {
+      font-size: 24px;
+      color: #4682b4;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .credit-card-form label {
+      font-size: 16px;
+      color: #333;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .credit-card-form input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .place-order-button {
+      display: block;
+      width: 100%;
+      background-color: #4682b4;
+      color: white;
+      padding: 15px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .place-order-button:hover {
+      background-color: #5a9bd6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 40px;
+      background-color: #b0e0e6; /* same baby blue as header */
+      margin-top: 40px;
+    }
+
+    footer p {
+      margin: 10px 0;
+      font-size: 14px;
+      color: #666;
+    }
+
+    footer a {
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 20px;
+      color: #333;
+    }
+
+    footer a:hover {
+      color: #4682b4;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Crocheting Bro's</div>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="product.html">Products</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="resources.html">Additional Resources</a></li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+      <a href="login.html" class="login-icon">Login</a>
+      </ul>
+    </nav>
+  </header>
+
+  <<section class="cart-container">
+    <h1 class="cart-title">Your Cart</h1>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-total" id="cart-total">Total: $0.00</div>
+    <button class="place-order-button">Place Order</button>
+  </section>
+  
+  <script>
+    // Function to load cart items from localStorage
+    function loadCart() {
+      const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+      const cartItemsContainer = document.getElementById('cart-items');
+      const cartTotal = document.getElementById('cart-total');
+  
+      cartItemsContainer.innerHTML = '';
+      let total = 0;
+  
+      cartItems.forEach((item, index) => {
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'cart-item';
+        itemDiv.innerHTML = `
+          <img src="${item.image}" alt="${item.name}">
+          <div class="cart-item-details">
+            <div class="cart-item-title">${item.name}</div>
+            <div class="cart-item-price">$${item.price.toFixed(2)}</div>
+          </div>
+          <button class="remove-button" onclick="removeItem(${index})">Remove</button>
+        `;
+        cartItemsContainer.appendChild(itemDiv);
+        total += item.price;
+      });
+  
+      cartTotal.textContent = `Total: $${total.toFixed(2)}`;
+    }
+  
+    // Function to remove an item from the cart
+    function removeItem(index) {
+      const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+      cartItems.splice(index, 1);
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+      loadCart(); // Reload cart after removal
+    }
+  
+    // Load cart items on page load
+    window.onload = loadCart;
+  </script>
+
+    <div class="credit-card-form">
+      <h2>Payment Information</h2>
+      <label for="card-name">Name on Card</label>
+      <input type="text" id="card-name" placeholder="Enter your name" required>
+
+      <label for="card-number">Card Number</label>
+      <input type="text" id="card-number" placeholder="1234 5678 9012 3456" required>
+
+      <label for="expiry">Expiry Date</label>
+      <input type="text" id="expiry" placeholder="MM/YY" required>
+
+      <label for="cvv">CVV</label>
+      <input type="text" id="cvv" placeholder="123" required>
+
+      <button class="place-order-button">Place Order</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Crocheting Store. All rights reserved.</p>
+    <a href="#">Facebook</a>
+    <a href="#">Instagram</a>
+    <a href="#">Pinterest</a>
+  </footer>
+</body>
+</html>

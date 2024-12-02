@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Crocheting Bro's</title>
+  <style>
+    /* Styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f8ff; /* light baby blue background */
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #b0e0e6; /* baby blue header */
+    }
+
+    .logo {
+      font-size: 32px;
+      font-weight: bold;
+      color: #4682b4; /* darker blue for logo text */
+    }
+
+    nav ul {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-size: 18px;
+    }
+
+    nav ul li a:hover {
+      color: #4682b4;
+    }
+
+    .form-container {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    .form-container h1 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #4682b4;
+    }
+
+    .form-container label {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    .form-container input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .form-container button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4682b4;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .form-container button:hover {
+      background-color: #5a9bd6;
+    }
+
+    .form-container .redirect {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .form-container .redirect a {
+      color: #4682b4;
+      text-decoration: none;
+    }
+
+    .form-container .redirect a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Crocheting Bro's</div>
+  <nav>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="product.html">Products</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="resources.html">Additional Resources</a></li>
+      <li><a href="cart.html">Cart</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="form-container">
+  <h1>Login</h1>
+  <form id="login-form">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    
+    <button type="submit">Login</button>
+    <div class="redirect">
+      <p>Don't have an account? <a href="register.html">Register Here</a></p>
+    </div>
+  </form>
+</div>
+
+<script>
+  document.getElementById('login-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById('email').value;
+    const userName = email.split('@')[0]; // Extract name from email for demo purposes
+
+    // Mock login validation (replace with actual server validation)
+    alert('Login successful!');
+    localStorage.setItem('userName', userName); // Save user name to localStorage
+    window.location.href = 'home.html'; // Redirect to home page
+  });
+</script>
+
+</body>
+</html>

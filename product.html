@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products - Crocheting Bro's</title>
+  <style>
+    /* Inheriting styles from the rest of the website */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f8ff; /* light baby blue background */
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #b0e0e6; /* baby blue header */
+    }
+
+    .logo {
+      font-size: 32px;
+      font-weight: bold;
+      color: #4682b4; /* darker blue for logo text */
+    }
+
+    nav ul {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-size: 18px;
+    }
+
+    nav ul li a:hover {
+      color: #4682b4;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 36px;
+      color: #4682b4;
+      margin: 30px 0 10px 0;
+    }
+
+    .products-section {
+      padding: 20px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .product {
+      border: 1px solid #ddd;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      border-radius: 10px;
+    }
+
+    .product img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 15px;
+    }
+
+    .product h2 {
+      font-size: 18px;
+      color: #4682b4;
+      margin: 10px 0;
+    }
+
+    .product p {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .add-to-cart {
+      padding: 10px 20px;
+      background-color: #4682b4;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .add-to-cart:hover {
+      background-color: #5a9bd6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #b0e0e6;
+      margin-top: 40px;
+    }
+
+    footer p {
+      margin: 10px 0;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Crocheting Bro's</div>
+  <nav>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="product.html">Products</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="resources.html">Additional Resources</a></li>
+      <li><a href="cart.html">Cart</a></li>
+    </ul>
+    <a href="login.html" class="login-icon">Login</a>
+    </ul>
+  </nav>
+</header>
+
+<h1 class="section-title">Our Products</h1>
+
+<!-- Hats Section -->
+<section class="products-section" id="hats">
+  <h2 class="section-title">Hats</h2>
+  <div class="products-grid">
+    <div class="product">
+      <img src="images/WarmBeanie.png" alt="Hat 1">
+      <h2>Warm Beanie</h2>
+      <p>$7.99</p>
+      <button class="add-to-cart" onclick="addToCart('Warm Beanie', 7.99, 'images/WarmBeanie.png')">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="images/SlouchyHat.png" alt="Hat 2">
+      <h2>Slouchy Hat</h2>
+      <p>$8.99</p>
+      <button class="add-to-cart" onclick="addToCart('Slouchy Hat', 8.99, 'images/SlouchyHat.png')">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="images/Pom-PomHat.png" alt="Hat 3">
+      <h2>Pom-Pom Hat</h2>
+      <p>$10.99</p>
+      <button class="add-to-cart" onclick="addToCart('Pom-Pom Hat', 10.99, 'images/Pom-PomHat.png')">Add to Cart</button>
+    </div>
+  </div>
+</section>
+
+<!-- Scarves Section -->
+<section class="products-section" id="scarves">
+  <h2 class="section-title">Scarves</h2>
+  <div class="products-grid">
+    <div class="product">
+      <img src="images/WinterScarf.png" alt="Scarf 1">
+      <h2>Winter Scarf</h2>
+      <p>$15.99</p>
+      <button class="add-to-cart" onclick="addToCart('Winter Scarf', 15.99, 'images/WinterScarf.png')">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="images/InfinityScarf.png" alt="Scarf 2">
+      <h2>Infinity Scarf</h2>
+      <p>$17.99</p>
+      <button class="add-to-cart" onclick="addToCart('Infinity Scarf', 17.99, 'images/InfinityScarf.png')">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="images/KnitScarf.png" alt="Scarf 3">
+      <h2>Knit Scarf</h2>
+      <p>$19.99</p>
+      <button class="add-to-cart" onclick="addToCart('Infinity Scarf', 17.99, 'images/InfinityScarf.png')">Add to Cart</button>
+    </div>
+  </div>
+</section>
+
+<!-- Blankets Section -->
+<section class="products-section" id="blankets">
+  <h2 class="section-title">Blankets</h2>
+  <div class="products-grid">
+    <div class="product">
+      <img src="images/ThrowBlanket.png" alt="Blanket 1">
+      <h2>Throw Blanket</h2>
+      <p>$35.99</p>
+      <button class="add-to-cart" onclick="addToCart('Throw Blanket', 35.99, 'images/ThrowBlanket.png')">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="images/LapBlanket.png" alt="Blanket 2">
+      <h2>Lap Blanket</h2>
+      <p>$39.99</p>
+      <button class="add-to-cart" onclick="addToCart('Lap Blanket', 39.99, 'images/LapBlanket.png')">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="images/QueenCrochet.png" alt="Blanket 3">
+      <h2>Queen Blanket</h2>
+      <p>$49.99</p>
+      <button class="add-to-cart" onclick="addToCart('Queen Blanket', 49.99, 'images/QueenCrochet.png')">Add to Cart</button>
+    </div>
+  </div>
+</section>
+
+<!-- Animals Section -->
+<section class="products-section" id="animals">
+  <h2 class="section-title">Animals</h2>
+  <div class="products-grid">
+    <div class="product">
+      <img src="images/Crocheted Bunny.png" alt="Animal 1">
+      <h2>Bunny</h2>
+      <p>$10.99</p>
+      <button class="add-to-cart" onclick="addToCart('Queen Blanket', 49.99, 'images/QueenCrochet.png')">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="images/CrochetedBear.png" alt="Animal 2">
+      <h2>Bear</h2>
+      <p>$12.99</p>
+      <button class="add-to-cart" onclick="addToCart('Bear', 12.99, 'images/CrochetedBear.png')">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="images/CrochetedCat.png" alt="Animal 3">
+      <h2>Cat</h2>
+      <p>$14.99</p>
+      <button class="add-to-cart" onclick="addToCart('Cat', 14.99, 'images/CrochetedCat.png')">Add to Cart</button>
+    </div>
+  </div>
+</section>
+
+<!-- Sale Section -->
+<section class="products-section" id="sale">
+  <h2 class="section-title">Sale</h2>
+  <div class="products-grid">
+    <div class="product">
+      <img src="images/SaleWarmBeanie.png" alt="Hat Sale">
+      <h2>Warm Beanie (Basic) (25% Off!)</h2>
+      <p>$5.99</p>
+      <button class="add-to-cart" onclick="addToCart('Warm Beanie (Basic)', 5.99, 'images/SaleWarmBeanie.png')">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="images/SaleWinterScarf.png" alt="Scarf Sale">
+      <h2>Winter Scarf (Multi-Colored) (25% Off!)</h2>
+      <p>$11.99</p>
+      <button class="add-to-cart" onclick="addToCart('Winter Scarf (Multi-Colored)', 11.99, 'images/SaleWinterScarf.png')">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="images/SaleBunny.png" alt="Animal Sale">
+      <h2>Bunny (Brown) (25% Off!)</h2>
+      <p>$8.99</p>
+      <button class="add-to-cart" onclick="addToCart('Bunny (Brown)', 8.99, 'images/SaleBunny.png')">Add to Cart</button>
+    </div>
+    <script>
+      // Function to add an item to the cart
+      function addToCart(name, price, image) {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        cartItems.push({ name, price, image });
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        alert(`${name} has been added to your cart!`);
+      }
+    </script>
